@@ -1,21 +1,26 @@
-# ratnashree_front
+# Ratna Shree Online Store (ratnashree_front_codebase)
 
-> This is frontend for ratna shree online store
+Ratna Shree online store application codebase for Web, Android and iOS
 
-## Build Setup
-
-``` bash
-# install dependencies
+## Install the dependencies
+```bash
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### Start the app in development mode (hot-code reloading, error reporting, etc.)
+```bash
+quasar dev
+```
+
+### Lint the files
+```bash
+npm run lint
+```
+
+### Build the app for production
+```bash
+quasar build
+```
+
+### Customize the configuration
+See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
