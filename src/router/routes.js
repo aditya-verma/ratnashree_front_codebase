@@ -76,7 +76,7 @@ const routes = [
       {
         name: 'Address',
         path: '',
-        component: () => import('pages/OrdersPage.vue')
+        component: () => import('pages/order/OrdersPage.vue')
       }
     ]
   },

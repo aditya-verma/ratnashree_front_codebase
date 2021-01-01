@@ -15,6 +15,13 @@
           </q-btn>
         </q-item-section>
       </q-item>
+      <OrderItem />
+      <OrderItem status="Cancelled" />
+      <OrderItem status="Completed" />
+
+      <q-item style="display: grid; grid-template-columns: 1fr;"
+        ><q-btn dense color="pink">Show older orders</q-btn></q-item
+      >
     </q-list>
   </q-page>
 </template>
@@ -23,7 +30,8 @@
 export default {
   name: "OrdersPage",
   components: {
-    Header: () => import("src/components/Header.vue")
+    Header: () => import("src/components/Header.vue"),
+    OrderItem: () => import("src/components/OrderItem.vue")
   },
   meta: {
     title: "ORDERS"
