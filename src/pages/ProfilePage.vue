@@ -5,7 +5,7 @@
     <q-img src="~src/assets/drawer_profile_cover.jpg" style="height: 150px">
       <div class="absolute-bottom bg-transparent">
         <q-avatar rounded size="56px" class="q-mb-sm">
-          <img src="https://cdn.quasar.dev/img/boy-avatar.png" alt="avatar"/>
+          <img src="https://cdn.quasar.dev/img/boy-avatar.png" alt="avatar" />
         </q-avatar>
         <div class="text-weight-bold">
           Aditya Vikram Verma
@@ -17,7 +17,13 @@
     <q-space style="height:20px" />
 
     <q-list padding class="bg-white">
-      <q-item clickable v-ripple v-for="item in menu_list_1" :key="item.name">
+      <q-item
+        clickable
+        v-ripple
+        v-for="item in menu_list_1"
+        :key="item.name"
+        :to="item.to"
+      >
         <q-item-section avatar>
           <q-icon :name="item.icon" />
         </q-item-section>
@@ -128,7 +134,7 @@ const PROFILE_MENU_SECTION_1 = [
     title: "Orders",
     description: "Check your order status",
     icon: "o_assignment_turned_in",
-    to: ""
+    to: "/orders/"
   },
   {
     title: "Help Center",

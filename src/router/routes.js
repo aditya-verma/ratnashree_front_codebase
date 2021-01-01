@@ -2,7 +2,7 @@
 const routes = [
   {
     path: '/',
-    alias: ['/home'],
+    alias: ['/home/'],
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/HomePage.vue') }
@@ -10,7 +10,7 @@ const routes = [
   },
 
   {
-    path: '/categories',
+    path: '/categories/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/CategoriesPage.vue') }
@@ -18,7 +18,7 @@ const routes = [
   },
 
   {
-    path: '/studio',
+    path: '/studio/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/StudioPage.vue') }
@@ -26,7 +26,7 @@ const routes = [
   },
 
   {
-    path: '/profile',
+    path: '/profile/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/ProfilePage.vue') }
@@ -34,7 +34,7 @@ const routes = [
   },
 
   {
-    path: '/product',
+    path: '/product/',
     component: () => import('layouts/CommonLayout.vue'),
     children: [
       {
@@ -46,7 +46,7 @@ const routes = [
   },
 
   {
-    path: '/checkout/cart',
+    path: '/checkout/cart/',
     component: () => import('layouts/CommonLayout.vue'),
     children: [
       {
@@ -58,13 +58,25 @@ const routes = [
   },
 
   {
-    path: '/checkout/address',
+    path: '/checkout/address/',
     component: () => import('layouts/CommonLayout.vue'),
     children: [
       {
         name: 'Address',
         path: '',
         component: () => import('pages/checkout/CheckoutAddressPage.vue')
+      }
+    ]
+  },
+
+  {
+    path: '/orders/',
+    component: () => import('layouts/CommonLayout.vue'),
+    children: [
+      {
+        name: 'Address',
+        path: '',
+        component: () => import('pages/OrdersPage.vue')
       }
     ]
   },
