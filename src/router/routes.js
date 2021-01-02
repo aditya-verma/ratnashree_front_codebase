@@ -93,6 +93,29 @@ const routes = [
     ]
   },
 
+  {
+    path: '/authentication/login/',
+    component: () => import('layouts/CommonLayout.vue'),
+    children: [
+      {
+        name: 'LoginPage',
+        path: '',
+        component: () => import('pages/authentication/LoginPage.vue')
+      }
+    ]
+  },
+  {
+    path: '/authentication/verify-otp/',
+    component: () => import('layouts/CommonLayout.vue'),
+    children: [
+      {
+        name: 'OtpPage',
+        path: '',
+        component: () => import('pages/authentication/OtpPage.vue')
+      }
+    ]
+  },
+
 
 
   // Always leave this as last one,
