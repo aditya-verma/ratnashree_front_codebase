@@ -24,8 +24,10 @@
       <q-item style="padding: 0; margin: 0">
         <div style="width: 100%">
           <div
+            v-ripple
             class="q-mb-sm"
             style="display: inline-flex; align-items:center;"
+            @click="toOrderDetailsPage()"
           >
             <div class="q-mr-sm">
               <q-avatar size="120px" square>
@@ -79,6 +81,11 @@ export default {
     status: {
       type: String,
       default: "Confirmation Pending"
+    }
+  },
+  methods: {
+    toOrderDetailsPage() {
+      this.$router.push({ path: "/orders/item-details/" });
     }
   }
 };

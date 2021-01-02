@@ -83,6 +83,8 @@ export default {
         heading_label = "Profile";
       } else if (route_label.startsWith("/studio")) {
         heading_label = "Studio";
+      } else if (route_label.startsWith("/orders/item-details/")) {
+        heading_label = "ITEM DETAILS";
       } else if (route_label.startsWith("/orders")) {
         heading_label = "ORDERS";
       }

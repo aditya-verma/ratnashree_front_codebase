@@ -19,9 +19,9 @@
       <OrderItem status="Cancelled" />
       <OrderItem status="Completed" />
 
-      <q-item style="display: grid; grid-template-columns: 1fr;"
-        ><q-btn dense color="pink">Show older orders</q-btn></q-item
-      >
+      <q-item style="display: grid; grid-template-columns: 1fr;">
+        <q-btn dense color="pink">Show older orders</q-btn>
+      </q-item>
     </q-list>
   </q-page>
 </template>

@@ -6,7 +6,7 @@
         style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd"
       >
         <q-list padding>
-          <q-item clickable v-ripple to="/categories">
+          <q-item clickable v-ripple to="/categories/">
             <q-item-section avatar>
               <q-icon name="r_widgets" />
             </q-item-section>
@@ -16,7 +16,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple to="/wishlist">
+          <q-item clickable v-ripple to="/wishlist/">
             <q-item-section avatar>
               <q-icon name="r_favorite" />
             </q-item-section>
@@ -26,7 +26,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple to="/cart">
+          <q-item clickable v-ripple to="/checkout/cart/">
             <q-item-section avatar>
               <q-icon name="shopping_bag" />
             </q-item-section>
@@ -36,7 +36,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple to="/orders">
+          <q-item clickable v-ripple to="/orders/">
             <q-item-section avatar>
               <q-icon name="assignment_turned_in" />
             </q-item-section>
@@ -60,7 +60,7 @@
           @click="$router.push('profile')"
         >
           <q-avatar size="56px" class="q-mb-sm">
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" alt="avatar"/>
+            <img src="https://cdn.quasar.dev/img/boy-avatar.png" alt="avatar" />
           </q-avatar>
           <div class="text-weight-bold">
             Aditya Vikram Verma

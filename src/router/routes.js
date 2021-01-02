@@ -74,9 +74,21 @@ const routes = [
     component: () => import('layouts/CommonLayout.vue'),
     children: [
       {
-        name: 'Address',
+        name: 'Orders',
         path: '',
         component: () => import('pages/order/OrdersPage.vue')
+      }
+    ]
+  },
+
+  {
+    path: '/orders/item-details/',
+    component: () => import('layouts/CommonLayout.vue'),
+    children: [
+      {
+        name: 'OrderItemDetails',
+        path: '',
+        component: () => import('pages/order/OrderItemDetailsPage.vue')
       }
     ]
   },
