@@ -50,23 +50,4 @@ export default {
 };
 </script>
 
-<style>
-.otp-input {
-  width: 40px;
-  height: 40px;
-  padding: 5px;
-  margin: 0 10px;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  text-align: center;
-  &.error {
-    border: 1px solid red !important;
-  }
-}
-.otp-input::-webkit-inner-spin-button,
-.otp-input::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-</style>
+<style></style>
