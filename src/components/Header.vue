@@ -87,6 +87,8 @@ export default {
         heading_label = "ITEM DETAILS";
       } else if (route_label.startsWith("/orders")) {
         heading_label = "ORDERS";
+      } else if (route_label.startsWith("/me/profile/edit/")) {
+        heading_label = "EDIT";
       }
       return heading_label;
     },

@@ -17,16 +17,14 @@
           type="tel"
           style="font-size: 1.7em"
           hint="Mobile Number*"
+          maxlength="10"
+          @keyup.enter="verifyOTP"
         >
           <template v-slot:prepend>
             <span class="text-normal">+91 |</span>
           </template>
         </q-input>
-        <q-btn
-          color="pink"
-          stretch
-          class="q-mt-lg"
-          to="/authentication/verify-otp/"
+        <q-btn color="pink" stretch class="q-mt-lg" @click="verifyOTP()"
           >Continue</q-btn
         >
       </q-card-actions>
@@ -46,6 +44,17 @@ export default {
         value: ""
       }
     };
+  },
+  methods: {
+    verifyOTP() {
+      this.$router.push({
+        path: "/authentication/verify-otp/",
+        query: {
+          mobile_no: this.textField.value,
+          redirect: this.$route.query.redirect
+        }
+      });
+    }
   }
 };
 </script>

@@ -27,7 +27,6 @@
           :num-inputs="4"
           :should-auto-focus="true"
           :is-input-num="true"
-          @on-change="handleOnChange"
           @on-complete="handleOnComplete"
         />
       </div>
@@ -58,10 +57,32 @@ export default {
   },
   methods: {
     handleOnComplete(value) {
-      console.log("OTP completed: ", value);
+      const referenceOfThis = this;
+      fetch("/api/v1/user/verifyOTP/", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: referenceOfThis.$route.query.mobile_no,
+          otp: value
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          referenceOfThis.$router.replace({
+            path: referenceOfThis.$route.query.redirect
+              ? referenceOfThis.$route.query.redirect
+              : "/"
+          });
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
     },
     handleOnChange(value) {
-      console.log("OTP changed: ", value);
+      // console.log("OTP changed: ", value);
     }
   },
   data() {

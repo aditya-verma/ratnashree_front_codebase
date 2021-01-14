@@ -42,7 +42,13 @@
     <q-space style="height:20px" />
 
     <q-list padding class="bg-white">
-      <q-item clickable v-ripple v-for="item in menu_list_2" :key="item.name">
+      <q-item
+        clickable
+        v-ripple
+        v-for="item in menu_list_2"
+        :key="item.name"
+        :to="item.to"
+      >
         <q-item-section avatar>
           <q-icon :name="item.icon" />
         </q-item-section>
@@ -61,7 +67,13 @@
     <q-space style="height:20px" />
 
     <q-list padding class="bg-white">
-      <q-item clickable v-ripple v-for="item in menu_list_3" :key="item.name">
+      <q-item
+        clickable
+        v-ripple
+        v-for="item in menu_list_3"
+        :key="item.name"
+        :to="item.to"
+      >
         <q-item-section avatar>
           <q-icon :name="item.icon" />
         </q-item-section>
@@ -80,7 +92,13 @@
     <q-space style="height:20px" />
 
     <q-list padding class="text-weight-medium text-caption bg-white">
-      <q-item clickable v-ripple v-for="item in menu_list_4" :key="item.name">
+      <q-item
+        clickable
+        v-ripple
+        v-for="item in menu_list_4"
+        :key="item.name"
+        :to="item.to"
+      >
         <q-item-section avatar>
           <q-icon :name="item.icon" />
         </q-item-section>
@@ -115,14 +133,13 @@
       style="height: 50px"
     >
       <q-badge outline align="middle" color="primary">
-        App Version v{{ this.version }}
+        App Version v{{ $PACKAGE_VERSION || "0" }}
       </q-badge>
     </div>
   </q-page>
 </template>
 
 <script>
-import version from "../version.js";
 const PROFILE_MENU_SECTION_1 = [
   {
     title: "Wishlist",
@@ -170,7 +187,7 @@ const PROFILE_MENU_SECTION_3 = [
     title: "Profile Details",
     description: "Change your profile details & password",
     icon: "o_description",
-    to: ""
+    to: "/me/profile/edit/"
   },
   {
     title: "Settings",
@@ -188,7 +205,7 @@ const ABOUT_TERMS_POLICY = [
 ];
 
 export default {
-  name: "Home",
+  name: "Dashboard",
   components: {
     Header: () => import("src/components/Header.vue")
   },
@@ -198,7 +215,7 @@ export default {
       menu_list_2: PROFILE_MENU_SECTION_2,
       menu_list_3: PROFILE_MENU_SECTION_3,
       menu_list_4: ABOUT_TERMS_POLICY,
-      version: version.version
+      version: this.version
     };
   },
   meta: {
@@ -206,3 +223,5 @@ export default {
   }
 };
 </script>
+
+<style lang="scss"></style>

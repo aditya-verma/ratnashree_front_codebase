@@ -10,7 +10,7 @@
         align="justify"
         :breakpoint="0"
         dense
-        class="bg-white text-weight-medium text-dark shadow-1"
+        class="bg-white text-weight-medium text-dark shadow-1 q-tabs__content--align-justify"
         style="font-size: 10px !important"
         active-color="primary"
       >
@@ -40,7 +40,7 @@
           :alert="alertProfile"
           name="profile"
           :icon="profileTabIcon()"
-          to="/profile/"
+          to="/me/dashboard/"
         >
           <label>Profile</label>
         </q-route-tab>

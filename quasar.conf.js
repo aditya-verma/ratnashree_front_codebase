@@ -6,6 +6,9 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
+const fs = require('fs');
+const packageJson = fs.readFileSync('./package.json');
+const version = JSON.parse(packageJson).version || 0;
 
 module.exports = function (/* ctx */) {
   return {
@@ -19,7 +22,7 @@ module.exports = function (/* ctx */) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
-      'axios',
+      'version',
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -45,7 +48,7 @@ module.exports = function (/* ctx */) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
 
       // transpile: false,
 
@@ -72,6 +75,9 @@ cfg.module.rules.push({
           exclude: /node_modules/
         })
       },
+      env: {
+        PACKAGE_VERSION: version
+      }
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
@@ -82,11 +88,8 @@ cfg.module.rules.push({
       proxy: {
         // proxy all requests starting with /api to jsonplaceholder
         '/api': {
-          target: 'http://localhost:8000', // default local backend server
-          changeOrigin: true,
-          pathRewrite: {
-            '^/api': ''
-          }
+          target: 'http://127.0.0.1:8000', // default local backend server
+          changeOrigin: true
         }
       }
     },
@@ -100,6 +103,9 @@ cfg.module.rules.push({
           // Using default configuration
           // See the documentation below to add configurations
           // https://quasar.dev/vue-directives/material-ripple#Ripple-API
+        },
+        notify: {
+          // Notify config
         }
       },
 
@@ -118,13 +124,15 @@ cfg.module.rules.push({
       // Quasar plugins
       plugins: [
         'Meta',
-        'AddressbarColor'
+        'AddressbarColor',
+        'Cookies',
+        'Notify'
       ]
     },
 
     // animations: 'all', // --- includes all animations
     // https://quasar.dev/options/animations
-    animations: [],
+    animations: 'all',
 
     // https://quasar.dev/quasar-cli/developing-ssr/configuring-ssr
     ssr: {

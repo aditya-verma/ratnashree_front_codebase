@@ -4,9 +4,7 @@
   </div>
 </template>
 <script>
-import { version } from "../package.json";
 export default {
-  name: "App",
-  version: version
+  name: "App"
 };
 </script>

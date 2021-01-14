@@ -26,14 +26,6 @@ const routes = [
   },
 
   {
-    path: '/profile/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/ProfilePage.vue') }
-    ]
-  },
-
-  {
     path: '/product/',
     component: () => import('layouts/CommonLayout.vue'),
     children: [
@@ -42,6 +34,22 @@ const routes = [
         path: '',
         component: () => import('pages/ProductDetailsPage.vue')
       }
+    ]
+  },
+
+  {
+    path: '/me/dashboard/',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/me/DashboardPage.vue') }
+    ]
+  },
+
+  {
+    path: '/me/profile/edit/',
+    component: () => import('layouts/CommonLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/me/profile/edit.vue') }
     ]
   },
 
@@ -104,6 +112,7 @@ const routes = [
       }
     ]
   },
+
   {
     path: '/authentication/verify-otp/',
     component: () => import('layouts/CommonLayout.vue'),
