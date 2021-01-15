@@ -4,7 +4,7 @@
     <q-list v-show="!loading">
       <q-item class="q-pl-xl q-pr-xl q-mb-xs">
         <q-avatar style="margin:auto;" size="150px" rounded>
-          <img src="https://cdn.quasar.dev/img/avatar.png" />
+          <img alt="avatar" src="https://cdn.quasar.dev/img/avatar.png" />
         </q-avatar>
       </q-item>
       <q-item class="q-pl-xl q-pr-xl q-mb-md">
@@ -200,9 +200,9 @@ export default {
         }
       })
         .then(response => {
-          if (response.status == 200) {
+          if (response.status === 200) {
             return response.json();
-          } else if (response.status == 403) {
+          } else if (response.status === 403) {
             referenceOfThis.$router.replace({
               path: "/authentication/login/",
               query: {
@@ -220,15 +220,13 @@ export default {
         })
         .then(data => {
           referenceOfThis.user = data.data;
-        })
-        .catch(error => {
-          console.error("Error:", error);
         });
     },
     setChangePasswordValueToInitial() {
       this.changePassword.old = "";
       this.changePassword.old_error = false;
-      (this.changePassword.new = ""), (this.changePassword.new_error = false);
+      this.changePassword.new = "";
+      this.changePassword.new_error = false;
       this.changePassword.confirm = "";
       this.changePassword.confirm_error = false;
     },
@@ -249,17 +247,17 @@ export default {
         }
       })
         .then(response => {
-          if (response.status == 200) {
+          if (response.status === 200) {
             referenceOfThis.$refs.closePasswordPopup.$el.click();
             return response.json();
-          } else if (response.status == 403) {
+          } else if (response.status === 403) {
             referenceOfThis.$router.replace({
               path: "/authentication/login/",
               query: {
                 redirect: referenceOfThis.$route.path
               }
             });
-          } else if (response.status == 400) {
+          } else if (response.status === 400) {
             return response.json();
           } else {
             referenceOfThis.$q.notify({
@@ -271,7 +269,6 @@ export default {
           }
         })
         .then(response => {
-          console.log(response);
           if (response.detail) {
             referenceOfThis.$q.notify({
               icon: "cancel",
@@ -294,9 +291,6 @@ export default {
               progress: true
             });
           }
-        })
-        .catch(error => {
-          console.error("Error:", error);
         });
     }
   },
@@ -315,8 +309,9 @@ export default {
     }
   },
   watch: {
+    // eslint-disable-next-line no-unused-vars
     "changePassword.new": function(newValue, oldValue) {
-      if (this.changePassword.old == newValue) {
+      if (this.changePassword.old === newValue) {
         this.changePassword.old_error = true;
         this.changePassword.new_error = true;
         this.changePassword.error_message =
@@ -326,8 +321,9 @@ export default {
         this.changePassword.new_error = false;
       }
     },
+    // eslint-disable-next-line no-unused-vars
     "changePassword.confirm": function(newValue, oldValue) {
-      if (this.changePassword.new != newValue) {
+      if (this.changePassword.new !== newValue) {
         this.changePassword.confirm_error = true;
         this.changePassword.error_message =
           "Confirm password must be same as the new password";
@@ -340,9 +336,9 @@ export default {
     const referenceOfThis = this;
     fetch("/api/v1/me/read_profile/")
       .then(response => {
-        if (response.status == 200) {
+        if (response.status === 200) {
           return response.json();
-        } else if (response.status == 403) {
+        } else if (response.status === 403) {
           referenceOfThis.$router.replace({
             path: "/authentication/login/",
             query: {
@@ -362,9 +358,6 @@ export default {
       .then(data => {
         referenceOfThis.user = data.data;
         this.loading = false;
-      })
-      .catch(error => {
-        console.error("Error:", error);
       });
   }
 };

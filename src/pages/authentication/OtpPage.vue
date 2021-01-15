@@ -70,19 +70,13 @@ export default {
         })
       })
         .then(response => response.json())
-        .then(data => {
+        .then(() => {
           referenceOfThis.$router.replace({
             path: referenceOfThis.$route.query.redirect
               ? referenceOfThis.$route.query.redirect
               : "/"
           });
-        })
-        .catch(error => {
-          console.error("Error:", error);
         });
-    },
-    handleOnChange(value) {
-      // console.log("OTP changed: ", value);
     }
   },
   data() {

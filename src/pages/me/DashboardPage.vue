@@ -214,8 +214,7 @@ export default {
       menu_list_1: PROFILE_MENU_SECTION_1,
       menu_list_2: PROFILE_MENU_SECTION_2,
       menu_list_3: PROFILE_MENU_SECTION_3,
-      menu_list_4: ABOUT_TERMS_POLICY,
-      version: this.version
+      menu_list_4: ABOUT_TERMS_POLICY
     };
   },
   meta: {
